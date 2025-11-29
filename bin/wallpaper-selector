@@ -1,0 +1,23 @@
+#!/bin/bash
+
+wallPaperDir="$HOME/Pictures/wallpapers/"
+theme="$HOME/.config/rofi/wallpaper-selector.rasi"
+
+cd $wallPaperDir
+
+getImages(){
+	for a in *; 
+		do echo -en "$a\0icon\x1f$a\n";
+
+	done
+}
+main(){
+	choice=$( (getImages) | rofi -dmenu -p "󰍉 " -theme $theme)
+	if [ -z $choice ];then
+		exit 0
+	fi
+	/home/n1rajn/.local/lib/python/bin/wal -i $choice  --cols16 lighten 
+	/home/n1rajn/.local/lib/python/bin/pywalfox update
+}
+main & 
+exit 0

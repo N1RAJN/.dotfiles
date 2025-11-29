@@ -1,0 +1,5 @@
+#!/bin/bash
+theme="/home/n1rajn/.config/rofi/config.rasi";
+wallpaper=$(cat /home/n1rajn/.cache/wal/wal);
+
+rofi -show drun -theme-str "imagebox {background-image: url(\"$wallpaper\", height);}" -theme "$theme";

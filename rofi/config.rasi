@@ -1,0 +1,122 @@
+/*
+ * documentation: https://github.com/davatorium/rofi/wiki
+ * config created by aditya shakya https://github.com/adi1090x
+ * config modified by keyitdev https://www.github.com/keyitdev/dotfiles
+ * copyright (c) 2022 keyitdev, aditya shakya
+*/
+
+@import "~/.cache/wal/colors-rofi-dark"
+
+configuration {
+	modi: "drun";
+	font:	"JetBrainsMono Nerd Font Propo Light 15";
+	show-icons: true;
+    	display-drun: " ";
+	icon-theme: "papirus";
+	drun-display-format:"{name}";
+	disable-history:false;
+	sidebar-mode:false;
+}
+
+window {
+	padding: 0%;
+	margin: 0%;
+	transparency: "real";
+	height:65%;
+	width:55%;
+	location:center;
+	x-offset:0;
+	y-offset:0;
+	border: 3;
+	border-radius: 2% 1.1%;
+	border-color: @active-background;
+}
+
+prompt {
+    text-color:#fff;
+    background-color:@background;
+    enabled: true;
+    padding: 1% 0% 1% 1%;
+    margin: 0.5% 0% 0% 0%;
+}
+
+entry {
+    text-color:#fff;
+    font:"Jetbrainsmononlnerdfontmono-light 13";
+    expand:true;
+    background-color: @background; 
+    horizontal-align:0;
+    placeholder:"Search";
+    placeholder-color:#fff;
+    blink:true;
+    padding: 1% 1% 1% 0%;
+    margin: 0.5% 0% 0% 0%;
+}
+
+inputbar {
+    children:[ prompt, entry ];
+    background-color: transparent;
+    expand:false;
+    border:0% 0% 0% 0%;
+    border-radius:0px;
+    padding: 0%;
+    margin: 0%;
+}
+imagebox{
+    background-color:            transparent;
+    orientation:                 vertical;
+    children:                    [ inputbar ];
+    padding: 2%;
+    margin: 0%;
+}
+
+listview {
+    columns:1;
+    lines:10;
+    spacing:0%;
+    cycle:true;
+    dynamic:true;
+    layout:vertical;
+    padding: 0%;
+    margin: 0.5%;
+    scrollbar: false; 
+}
+
+mainbox {
+    children:[ imagebox , listview ];
+    spacing:0%;
+    padding: 0%; 
+    margin: 0%;
+    orientation:horizontal;
+}
+
+element {
+    orientation:horizontal;
+    border-radius:0.5%;
+    padding:1% 0.5% 1% 0.5%;
+	margin: 0.5%;
+}
+
+element-icon {
+    horizontal-align:0.5;
+    vertical-align:0.5;
+    size:48px;
+    border:0px;
+    padding:0 10px 0 10px;
+	padding: 0%;
+	margin: 0% 0.3% 0% 0%;
+}
+
+element-text {
+    text-color:#fff;
+    expand:true;
+    horizontal-align:0;
+    vertical-align:0.5;
+	padding: 0%;
+	margin: 0%;
+}
+
+element selected {
+	border:	0% 0% 0% 0%;
+}
+
