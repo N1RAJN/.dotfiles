@@ -1,0 +1,22 @@
+##[general]
+##import = [
+##"./themes/themes/ayu_light.toml"
+##]
+[font]
+size = 13.0
+
+[font.bold]
+family = "JetBrainsMono Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "JetBrainsMono Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Regular"
+[window]
+padding.x = 0
+padding.y = 0
+dynamic_padding = true

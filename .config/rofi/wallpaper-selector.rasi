@@ -1,0 +1,109 @@
+/*
+ * documentation: https://github.com/davatorium/rofi/wiki
+ * config created by aditya shakya https://github.com/adi1090x
+ * config modified by keyitdev https://www.github.com/keyitdev/dotfiles
+ * copyright (c) 2022 keyitdev, aditya shakya
+*/
+
+@import "~/.cache/wal/colors-rofi-dark"
+
+listview { scrollbar: false; }
+
+configuration {
+    	font:"Jetbrainsmononlnerdfontmono-light 15";
+	show-icons: true;
+	display-dmenu: "h";
+	disable-history:false;
+	sidebar-mode:false;
+}
+
+window {
+	padding:1%;
+	transparency: "real";
+	height:90%;
+	width:90%;
+	location:center;
+	x-offset:0;
+	y-offset:0;
+	border: 3;
+	border-radius: 3% 2.3%;
+	border-color: @active-background;
+}
+prompt{
+
+	text-color: #fff;
+    font:"Jetbrainsmononlnerdfontmono-light 16";
+}
+entry {
+	margin:0%;
+	padding:0%;
+    text-color:#fff;
+    font:"Jetbrainsmononlnerdfontmono-light 16";
+    expand:true;
+    horizontal-align:0;
+    placeholder:"search wallpaper";
+    placeholder-color:#fff;
+    blink:true;
+}
+inputbar {
+	margin:3% 0% 0% 0%;
+	padding:0% ;
+	children:[ prompt, entry ];
+    expand:false;
+    border:0% 0% 0% 0%;
+    border-radius:0px;
+    //margin:0% 0% 0% 0%;
+   // padding:1.5%;
+}
+
+listview {
+	margin:0%;
+	padding:0%;
+    padding:0px;
+    columns:4;
+    lines:2;
+    spacing:0%;
+    cycle:true;
+    dynamic:true;
+    layout:vertical;
+}
+
+mainbox {
+	margin:0%;
+	padding:0%;
+    children:[ inputbar, listview ];
+    spacing:0%;
+    padding:0%;
+}
+
+element {
+	margin:4% 0% 0% 0%;
+	padding:0%;
+    orientation:vertical;
+    border-radius:3% 2%;
+    //padding:1% 0.5% 1% 0.5%;
+}
+
+element-icon {
+	margin:0%;
+	padding:0%;
+    horizontal-align:0.5;
+    vertical-align:0.35;
+    size:30%;
+    //padding:0 10px 0 10px;
+}
+
+element-text {
+	margin:0%;
+	padding:0%;
+    expand:true;
+    horizontal-align:0.5;
+    vertical-align:0.5;
+    margin:0% 0% 2% 0%; 
+}
+element.selected.normal{
+	text-color: @active-background;
+	background-color:  @background;
+	border:2px;
+	border-color: @active-background;
+}

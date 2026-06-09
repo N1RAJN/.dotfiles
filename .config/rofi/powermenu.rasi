@@ -1,0 +1,89 @@
+/*
+ * documentation: https://github.com/davatorium/rofi/wiki
+ * config created by aditya shakya https://github.com/adi1090x
+ * config modified by keyitdev https://www.github.com/keyitdev/dotfiles
+ * copyright (c) 2022 keyitdev, aditya shakya
+*/
+
+@import "~/.cache/wal/colors-rofi-dark"
+
+listview { scrollbar: false; }
+
+configuration {
+	modi: "drun";
+	font:	"JetBrainsMono Nerd Font Propo Light 15";
+	icon-theme: "papirus";
+	drun-display-format:"{name}";
+	disable-history:false;
+	sidebar-mode:false;
+	inputbar: false;
+
+}
+
+window {
+	transparency: "real";
+	height:35%;
+	width:25%;
+	location:center;
+	x-offset:0;
+	y-offset:-1;
+	border: 3;
+	border-radius: 3% 2.1%;
+	border-color: @active-background;
+	padding:0px 0px 0px 0px;
+	margin:0px;
+	padding:0px;
+}
+
+message {
+    enabled:                     true;
+    margin:                      0% 2%;
+    padding: 0.5% 0% 0% 0%;
+    //padding:                     10px;
+    border:                      0px solid;
+    background-color:            @background;
+    text-color:                  #fff;
+}
+listview {
+    padding:0px;
+    columns:2;
+    lines:2;
+    spacing:0%;
+    cycle:true;
+    dynamic:true;
+    layout:vertical;
+}
+
+mainbox {
+    children:[ message , listview ];
+    spacing:0px;
+    padding:0px;
+    margin:0px;
+}
+
+element {
+    background:@background;
+    orientation:horizontal;
+    border-radius:0.5%;
+   // padding: 0% 0% 0% 2.45%;
+     margin:0% 0% 0% 2.45%;
+	padding:0px;
+    //margin: 1%;
+    text-align:center;
+}
+
+element-text {
+    font:"JetBrainsMono Nerd Font Propo Light 65";
+    text-align:center;
+    horizontal-align:0;
+    vertical-align:0;
+    margin:0%; 
+}
+
+element.selected.normal{
+	text-color:@active-background;
+	background-color:@background;
+}
+
+
+
