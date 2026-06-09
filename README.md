@@ -5,6 +5,9 @@ Took scripts and various configs from the following repositories <br/>
 [elifouts](https://github.com/elifouts/Dotfiles)<br/>
 [adi1090x](https://github.com/adi1090x/rofi#)<br/>
 [Ruturajn](https://github.com/Ruturajn/Dotfiles/tree/main)<br/>
+[ThePrimeagen](htts://github.com/ThePrimeagen/)<br/>
+[TJ DeVries](htts://github.com/tjdevries/)<br/>
+
 # Programs Used
 <table>
   <tr>
@@ -46,6 +49,11 @@ Took scripts and various configs from the following repositories <br/>
     <tr>
     <td>Application Launcher </td>
     <td><a href="https://github.com/davatorium/rofi">rofi</a></td>
+  </tr>
+  </tr>
+    <tr>
+    <td>Teminal Multiplexer </td>
+    <td><a href="https://github.com/tmux/tmux/wiki">tmux</a></td>
   </tr>
  
 </table>
