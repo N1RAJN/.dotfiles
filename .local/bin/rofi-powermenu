@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# rofi theme
+theme="$HOME/.config/rofi/powermenu.rasi"
+uptime="`uptime -p | sed -e 's/up //g' | sed -e 's/hour/hr/g' | sed -e 's/minute/min/g'`"
+get_options() {
+  echo "⏻"
+  echo ""
+  echo "󰌾"
+  echo "󰍃"
+}
+
+main() {
+
+  # get choice from rofi
+  choice=$( (get_options) | rofi -dmenu -i -fuzzy -mesg "Uptime: $uptime" -theme "$theme")
+
+  # run the selected command
+  case $choice in
+  '⏻')
+    systemctl poweroff
+    ;;
+  '')
+    systemctl reboot
+    ;;
+   '󰌾')
+    lock
+    ;;
+  '󰍃')
+    i3-msg exit
+    ;;
+  esac
+
+  # done
+  set -e
+}
+
+main &
+
+exit 0

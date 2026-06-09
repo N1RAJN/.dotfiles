@@ -1,0 +1,28 @@
+#!/bin/bash
+
+PLAYER="rhythmbox"
+
+case "$1" in
+    "toggle")
+        playerctl --player=$PLAYER play-pause
+        ;;
+    "next")
+        playerctl --player=$PLAYER next
+        ;;
+    "prev")
+        playerctl --player=$PLAYER previous
+        ;;
+    *)
+        # Default behavior: Print status for Polybar
+        STATUS=$(playerctl --player=$PLAYER status 2>/dev/null)
+        if [ "$STATUS" = "Playing" ]; then
+            # Display current song and Play/Pause icon
+            echo " $(playerctl --player=$PLAYER metadata --format '{{ artist }} - {{ title }}')"
+        elif [ "$STATUS" = "Paused" ]; then
+            echo " $(playerctl --player=$PLAYER metadata --format '{{ artist }} - {{ title }}')"
+        else
+            # Rhythmbox is not running
+            echo ""
+        fi
+        ;;
+esac

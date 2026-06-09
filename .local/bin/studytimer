@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd /home/n1rajn/Builds/STimer/
+git switch main
+./STimer

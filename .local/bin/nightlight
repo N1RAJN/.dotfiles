@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# --- Configuration ---
+CONFIG_FILE=~/.config/redshift/redshift.conf
+TEMP_KEY="current_temp"
+DELTA=100 # Change temperature by 300 Kelvin
+MIN_TEMP=1000  # Lowest temperature (warmest)
+MAX_TEMP=6500  # Highest temperature (neutral day light)
+
+# --- Argument Check ---
+if [ "$1" == "inc" ]; then
+    OPERATION="+"
+elif [ "$1" == "dec" ]; then
+    OPERATION="-"
+else
+    echo "Usage: $0 [inc|dec] (increase or decrease temperature)"
+    exit 1
+fi
+
+# 1. GET the current temperature from the config file
+# This assumes the format "current_temp=VALUE"
+CURRENT_TEMP=$(grep "$TEMP_KEY" "$CONFIG_FILE" | cut -d'=' -f2 | tr -d '[:space:]')
+
+if [ -z "$CURRENT_TEMP" ]; then
+    echo "Error: Could not read $TEMP_KEY from $CONFIG_FILE"
+    exit 1
+fi
+
+# 2. CALCULATE the new temperature
+NEW_TEMP=$((CURRENT_TEMP $OPERATION DELTA))
+
+# 3. Apply Boundaries
+if [ "$NEW_TEMP" -lt "$MIN_TEMP" ]; then
+    NEW_TEMP="$MIN_TEMP"
+elif [ "$NEW_TEMP" -gt "$MAX_TEMP" ]; then
+    NEW_TEMP="$MAX_TEMP"
+fi
+
+# 4. UPDATE the value in the config file
+sed -i "s/^$TEMP_KEY=.*/$TEMP_KEY=$NEW_TEMP/" "$CONFIG_FILE"
+
+# 5. APPLY the change instantly using the one-shot flag
+# -O sets the temperature, -P prevents the transition effect
+redshift -P -O "$NEW_TEMP" -m randr
+
+dunstify -a "Night Light" \
+	"Night Light" \
+	"Temperature: $NEW_TEMP" \
+	-r 100

@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Path to pywal wallpaper
+WALLPAPER="$(cat "$HOME/.cache/wal/wal")"
+
+# Update betterlockscreen cache if needed
+betterlockscreen -u "$WALLPAPER" &>/dev/null
+
+# Suspend picom so blur/opacity doesn’t show windows behind lock
+#pkill -USR1 -x picom
+
+# Launch betterlockscreen with blur
+betterlockscreen -l
+
+# Resume picom after unlock
+#pkill -USR2 -x picom
+
