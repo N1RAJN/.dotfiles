@@ -20,7 +20,7 @@ exec --no-startup-id redshift -O 3500
 exec --no-startup-id mpd
 exec --no-startup-id sleep 1 && mpc clear && mpc load Ambience
 
-exec --no-startup-id i3-msg 'workspace 3; exec alacritty; workspace 1'
+exec --no-startup-id i3-msg 'workspace 2; exec alacritty; workspace 1'
 
 set $refresh_i3status killall -sigusr1 i3status
 bindsym F2 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
